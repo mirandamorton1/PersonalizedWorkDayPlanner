@@ -1,3 +1,5 @@
+var $currentday = $("#currentDay");
+var $timeBlocks = $(".time-block");
 // var currentDate = moment().format("dddd, MMM Do'")
 // var currentHour = moment().format("H");
 var today = moment();
