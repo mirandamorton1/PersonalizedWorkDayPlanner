@@ -1,3 +1,10 @@
+// var currentDate = moment().format("dddd, MMM Do'")
+// var currentHour = moment().format("H");
+var today = moment();
+    $("#currentDay").text(today.format("dddd MMM Do, YYYY"));
+$(document).ready(function() {
+    currentDay.text(currentdate);
+})
 // FUNCTIONALITY FOR SAVING NOTES
 // Listen for a button click on the save button
 // grab the value from the asssociated text area
@@ -18,6 +25,7 @@
 // else - set it to green
 
 //DISPLAY THE CURRENT DAY ON THE PAGE
+
 // USE MOMENT TO GRAB THIS DAY/DATE
 // FORMAT IT CORRECTLY
 // PUT IT ON THE PAGE USING THE PARAGRAPH TAG
