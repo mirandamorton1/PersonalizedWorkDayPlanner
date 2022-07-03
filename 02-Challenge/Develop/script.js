@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     $timeBlocks.each(function () {
     var $thisBlock = $(this);
-    var thisBlockHr = parseInt($thisBlock.attr("data-hour"))
+    var thisBlockHr = parseInt($thisBlock.attr("data-hour"));
 
     if (thisBlockHr == currentHour) {
         $thisBlock.addClass("present").removeClass("past future");
