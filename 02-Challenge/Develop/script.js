@@ -2,7 +2,7 @@ var $currentDay = $("#currentDay");
 var $timeBlocks = $(".time-block");
 var $scheduleArea = $(".schedule");
 var currentDate = moment().format("dddd, MMM Do [at] hh:mm a")
-var currentHour = moment().format("h");
+var currentHour = moment().format("H");
 var $thisBlock = $(this).parent();
 var userInput = $("textarea");
 var toDoItems = [];
@@ -19,6 +19,23 @@ var today = moment();
 $(document).ready(function() {
     $currentDay.text(currentDate);
 
+    $timeBlocks.each(function () {
+        var $thisBlock = $(this);
+        var thisBlockHr = parseInt($thisBlock.attr("data-hour"));
+
+        if (thisBlockHr == currentHour) {
+        $thisBlock.addClass("present").removeClass("past future");
+        }
+        if (thisBlockHr < currentHour) {
+        $thisBlock.addClass("past").removeClass("present future");
+        }
+        if (thisBlockHr > currentHour) {
+        $thisBlock.addClass("future").removeClass("past present");
+        }
+
+})
+})
+
 //FUNCTIONALITY FOR CHANGING BACKGROUND COLOR BASED ON THE TIME OF DAY
 // Compare the current time of day with teh time associated with each block - use moment.js
 // set up variable equal to the current time of day with the time associated with each block - use moment.js
@@ -28,23 +45,6 @@ $(document).ready(function() {
 
 // else if the blocks time is equal to the current hour - change background color to red
 // else - set it to green
-
-    $timeBlocks.each(function () {
-    var $thisBlock = $(this);
-    var thisBlockHr = parseInt($thisBlock.attr("data-hour"));
-
-    if (thisBlockHr == currentHour) {
-        $thisBlock.addClass("present").removeClass("past future");
-    }
-    if (thisBlockHr < currentHour) {
-        $thisBlock.addClass("past").removeClass("present future");
-    }
-    if (thisBlockHr > currentHour) {
-        $thisBlock.addClass("future").removeClass("past present");
-    }
-
-})
-})
 
 // FUNCTIONALITY FOR SAVING NOTES
 // Listen for a button click on the save button
