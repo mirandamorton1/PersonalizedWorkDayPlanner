@@ -1,10 +1,12 @@
 var $currentDay = $("#currentDay");
 var $timeBlocks = $(".time-block");
-var $eventArea = $(".event");
-var appointments = [];
-var currentDate = moment().format("dddd, MMM Do'")
+var $scheduleArea = $(".schedule");
+var currentDate = moment().format("dddd, MMM Do [at] hh:mm a")
 var currentHour = moment().format("h");
 var $thisBlock = $(this).parent();
+var userInput = $("textarea");
+var toDoItems = [];
+
 
 //DISPLAY THE CURRENT DAY ON THE PAGE
 
@@ -41,9 +43,9 @@ $(document).ready(function() {
         $thisBlock.addClass("future").removeClass("past present");
     }
 
-});
-
 })
+})
+
 // FUNCTIONALITY FOR SAVING NOTES
 // Listen for a button click on the save button
 // grab the value from the asssociated text area
@@ -52,5 +54,3 @@ $(document).ready(function() {
 // GETTING PREVIOUS SAVED VALUES, AND DISPLAYING ON THE PAGE
 // get value (saved note) from local storage
 // give the text area the value that we got from localStorage
-
-
